@@ -44,13 +44,16 @@ public class SecurityConfig {
                         .anyRequest().permitAll())
                 .addFilter(loginFilter)
                 .logout(logout -> logout.
-                        logoutUrl("/logout").
-                        logoutSuccessHandler(logoutSuccessHandler())
+                        logoutUrl("/logout")
+                        .logoutSuccessHandler(logoutSuccessHandler())
                         .invalidateHttpSession(true)
                         .permitAll())
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
-                        .maximumSessions(1)
+                        .sessionConcurrency(configurer -> {
+                                configurer.maximumSessions(1);
+                                configurer.maxSessionsPreventsLogin(true);
+                        })
                 ).build();
     }
 
