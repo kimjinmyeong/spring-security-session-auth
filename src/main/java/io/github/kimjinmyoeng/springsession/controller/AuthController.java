@@ -6,6 +6,8 @@ import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.swing.*;
+
 @RestController
 @RequiredArgsConstructor
 public class AuthController {
@@ -18,8 +20,9 @@ public class AuthController {
         return "User registered successfully";
     }
 
-
-
+    /** login and logout method is intentionally left empty because the login and logout functionality
+     * is handled by the filter chain configuration in Spring Security.
+     */
     @PostMapping("/login")
     public String login(@RequestBody UserRequestDto userRequestDto) {
         return "User logged in successfully";
