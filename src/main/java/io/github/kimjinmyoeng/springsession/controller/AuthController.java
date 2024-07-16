@@ -1,7 +1,6 @@
 package io.github.kimjinmyoeng.springsession.controller;
 
 import io.github.kimjinmyoeng.springsession.dto.UserRequestDto;
-import io.github.kimjinmyoeng.springsession.model.User;
 import io.github.kimjinmyoeng.springsession.service.UserService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
