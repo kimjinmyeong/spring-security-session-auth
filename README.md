@@ -2,7 +2,7 @@
 
 ## Description
 
-This Spring Boot application implements session-based authentication and security using Spring Security, without utilizing the traditional form-based login or JWT.
+This Spring Boot application implements session-based authentication using Spring Security, without utilizing the traditional form-based login or JWT.
 ## Features
 
 - **Custom LoginFilter**: Implements custom login filter.
