@@ -23,7 +23,7 @@ A Spring Boot application with session-based authentication and security, withou
 ## Prerequisites
 
 - Recommend JDK 17 or higher
-- Maven or Gradle
+- Gradle
 - Docker
 
 ## Accessing the Application
