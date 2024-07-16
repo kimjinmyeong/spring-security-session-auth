@@ -2,7 +2,7 @@
 
 ## Description
 
-A Spring Boot application with session-based authentication and security, without using the traditional form-based login provided by Spring Security.
+This Spring Boot application implements session-based authentication and security using Spring Security, without utilizing the traditional form-based login or JWT.
 ## Features
 
 - **Custom LoginFilter**: Implements custom login filter.
@@ -32,6 +32,7 @@ A Spring Boot application with session-based authentication and security, withou
 - **Register EndPoint**: [POST /register](http://localhost:8080/register)
 - **Login Endpoint**: [POST /login](http://localhost:8080/login)
 - **Logout Endpoint**: [GET /logout](http://localhost:8080/logout)
+- **Get Session Create Time Endpoint**: [GET /session](http://localhost:8080/session)
 
 ### Example JSON Request
 
