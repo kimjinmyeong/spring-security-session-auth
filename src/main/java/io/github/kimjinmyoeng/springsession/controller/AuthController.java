@@ -6,7 +6,8 @@ import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import javax.swing.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @RestController
 @RequiredArgsConstructor
@@ -31,6 +32,16 @@ public class AuthController {
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         return "User logged out successfully";
+    }
+
+    @GetMapping("/session")
+    public String session(HttpSession session) {
+        long creationTime = session.getCreationTime();
+        Date creationDate = new Date(creationTime);
+
+        // Format the date to a readable string
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return dateFormat.format(creationDate);
     }
 
 }
