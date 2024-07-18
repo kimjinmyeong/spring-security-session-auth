@@ -30,7 +30,7 @@ public class AuthController {
     }
 
     @GetMapping("/logout")
-    public String logout(HttpSession session) {
+    public String logout() {
         return "User logged out successfully";
     }
 

@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.kimjinmyoeng.springsession.dto.UserRequestDto;
 import io.github.kimjinmyoeng.springsession.dto.UserResponseDto;
 import io.github.kimjinmyoeng.springsession.model.User;
-import io.github.kimjinmyoeng.springsession.repository.UserRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -27,8 +26,6 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
 
     private final AuthenticationManager authenticationManager;
 
-    private final UserRepository userRepository;
-
     private final ObjectMapper objectMapper;
 
     /**
@@ -44,9 +41,8 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
 
             UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(username, password);
 
-            /**
+            /*
              * The authenticate method performs the following detailed steps:
-             *
              * Token Creation: Create an Authentication token with the user's credentials.
              * Provider Loop: Iterate over available AuthenticationProviders.
              * Provider Support Check: Find a provider that supports the Authentication token.
@@ -73,7 +69,7 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
         response.setStatus(HttpServletResponse.SC_OK);
         response.setContentType("application/json; charset=UTF-8");
 
-        User user = userRepository.findByUsername(authentication.getName()).get();
+        User user = (User) authentication.getPrincipal();
         UserResponseDto userResponseDto = new UserResponseDto();
         userResponseDto.setId(user.getId());
         userResponseDto.setUsername(user.getUsername());

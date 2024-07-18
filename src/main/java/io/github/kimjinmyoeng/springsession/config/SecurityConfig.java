@@ -33,7 +33,7 @@ public class SecurityConfig {
         // set LoginFilter to handle login
         LoginFilter loginFilter = new LoginFilter(
                 authenticationManager(http.getSharedObject(AuthenticationConfiguration.class))
-                , userRepository, objectMapper);
+                , objectMapper);
         loginFilter.setFilterProcessesUrl("/login");
 
         return http.csrf(AbstractHttpConfigurer::disable). // csrf().disable() is deprecated and marked for removal.
